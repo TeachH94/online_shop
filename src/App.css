@@ -1,0 +1,11 @@
+.navBar {
+    display: flex;
+    padding-left: 30px;
+    background-color: black;
+    align-items: center;
+}
+
+.cart {
+    margin-left:auto;
+    padding-right: 30px;
+}
