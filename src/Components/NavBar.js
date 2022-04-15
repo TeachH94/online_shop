@@ -1,12 +1,23 @@
 import React from 'react';
 import logo from '../Assets/gpu.jpg';
-import cart from '../Assets/cart.jpg';
+import cartPic from '../Assets/cart.jpg';
+import Cart from './Cart.js'
 
-function NavBar () {
+function NavBar ({cartAddedProducts}) {
     return (
         <div className='navBar'>
             <img src={logo} alt='' />
-            <img className='cart' src={cart} width='52' height='46' alt='' />
+
+            <div className='cart'>
+                <div className='navbar-cart-wrap'>
+                    <img className='cart-pic' src={cartPic} width='46' height='38' alt=''/>
+                    <span className='cart-price'>0,00 zł</span>
+                </div>
+
+                <div className='cart-dropdown-list'>
+                    <Cart addedProducts={cartAddedProducts}/>
+                </div>
+            </div>
         </div>
     );
 }

@@ -5,9 +5,45 @@
     align-items: center;
 }
 
+.cart-dropdown-list {
+    color:blue;
+    position: absolute;
+    padding-top: 25px;
+    right: 20px;
+}
+
+.cart-product-price {
+    margin-right: 5px;
+    margin-left: 15px;
+    text-align: right;
+    width: 41px;
+}
+
+.cart-product-name {
+    width: 118px;
+}
+
 .cart {
-    margin-left:auto;
-    padding-right: 30px;
+    margin-left: auto;
+    margin-right: 85px;
+}
+
+.cart-price {
+    color: white;
+}
+
+.navbar-cart-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.cart-pic {
+    padding-right: 20px;
+
+}
+
+.cart-product {
+    display: flex;
 }
 
 .product {
@@ -17,7 +53,9 @@
     border-right: none;
     padding: 15px;
     width: 50rem;
+    justify-content: center;
 }
+
 
 .specs {
     margin-left: 40px;

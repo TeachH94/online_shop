@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Product = ({price, brand, vram, clock, pic, name}) => {
+const Product = ({price, brand, vram, clock, pic, name, onCartClick, productIndex}) => {
     return (
         <div className='product'>
             <img  alt ='' src = {require(`../Assets/${pic}`)}></img>
@@ -13,7 +13,7 @@ const Product = ({price, brand, vram, clock, pic, name}) => {
             </div>
             <div className='price'>
                 <h1 className ='producth1'>{`${price} zł`}</h1>
-                <input className='productInput' type='button' value='Do koszyka'/>
+                <input className='productInput' type='button' value='Do koszyka' onClick={event => onCartClick(productIndex)} />
             </div>
         </div>
     )

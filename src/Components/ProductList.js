@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product.js'
 
-const ProductList = ({gpuList}) => {
+const ProductList = ({gpuList, onCartClick}) => {
     return(
         <div className = 'scroll'>
             {
@@ -13,6 +13,8 @@ const ProductList = ({gpuList}) => {
             clock={gpuList[i].clock}
             pic={gpuList[i].pic}
             key={i}
+            onCartClick={onCartClick}
+            productIndex={gpuList[i].id}
             /> 
             })
             }

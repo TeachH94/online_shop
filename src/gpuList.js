@@ -1,5 +1,6 @@
 const gpu = [
     {
+        id: '1',
         brand: 'Geforce',    
         name: 'Geforce RTX 3060',
         price: 2500,
@@ -9,6 +10,7 @@ const gpu = [
     },
 
     {
+        id: '2',
         brand: 'Geforce',    
         name: 'Geforce RTX 3070',
         price: 3200,
@@ -18,6 +20,7 @@ const gpu = [
     },
 
     {
+        id: '3',
         brand: 'AMD',
         name: 'AMD RX 6600XT',
         price: 2300,
@@ -27,6 +30,7 @@ const gpu = [
     },
 
     {
+        id: '4',
         brand: 'AMD',
         name: 'AMD RX 6700XT',
         price: 2600,
@@ -36,6 +40,7 @@ const gpu = [
     },
 
     {
+        id: '5',
         brand: 'AMD',
         name: 'AMD RX 6900XT',
         price: 3600,
@@ -45,6 +50,7 @@ const gpu = [
     },
 
     {
+        id: '6',
         brand: 'Geforce',    
         name: 'Geforce GT 1030',
         price: 800,
@@ -54,6 +60,7 @@ const gpu = [
     },
 
     {
+        id: '7',
         brand: 'Geforce',    
         name: 'GTX 1660Ti',
         price: 1900,
@@ -63,6 +70,7 @@ const gpu = [
     },
 
     {
+        id: '8',
         brand: 'Geforce',    
         name: 'Geforce RTX 2070',
         price: 2320,

@@ -15,7 +15,8 @@ class App extends Component {
             priceMin: 0,
             priceMax: +Infinity,
             vram: [],
-            clock: []
+            clock: [],
+            cart: []
         }
     }
 
@@ -34,22 +35,21 @@ class App extends Component {
         }
     }
 
-    getVram = (event) => {
-        const ramSize = event.target.getAttribute('data-vram');
-        (event.target.checked) ?
-            this.setState({vram: this.state.vram.concat(ramSize)}) :
+    onVramFilterChange = (newVram, checked) => {
+        (checked) ?
+            this.setState({vram: this.state.vram.concat(newVram)}) :
             this.setState({
                 vram: this.state.vram.filter(e => {
-                    return e !== ramSize
+                    return e !== newVram
                 })
             })
     }
 
-    getPriceMin = (event) => {
+    onPriceMinFilterChange = (event) => {
         this.setState({priceMin: event.target.value})
     }
 
-    getPriceMax = (event) => {
+    onPriceMaxFilterChange = (event) => {
         this.setState({priceMax: event.target.value})
     }
 
@@ -57,25 +57,19 @@ class App extends Component {
         this.setState({searchfield: event.target.value})
     }
 
-    AmdCheckBox = (event) => {
-        (event.target.checked) ?
-            this.setState({brands: this.state.brands.concat(['AMD'])}) :
+    onBrandFilterChange = (newBrand, checked) => {
+        (checked) ?
+            this.setState({brands: this.state.brands.concat(newBrand)}) :
             this.setState({
                 brands: this.state.brands.filter(e => {
-                    return e !== 'AMD'
+                    return e !== newBrand
                 })
             })
 
     }
 
-    GeforceCheckBox = (event) => {
-        (event.target.checked) ?
-            this.setState({brands: this.state.brands.concat('Geforce')}) :
-            this.setState({
-                brands: this.state.brands.filter(e => {
-                    return e !== 'Geforce'
-                })
-            })
+    onCartChange = (productIndex) => {
+        this.setState({cart: this.state.cart.concat(gpu.filter(product => {return product.id === productIndex}))});
     }
 
     filter = (gpus) => {
@@ -106,21 +100,25 @@ class App extends Component {
 
     render() {
         const gpus = this.filter(gpu);
+        console.log(this.state.cart)
 
         return (
             <div>
-                <NavBar/>
+
+                <NavBar cartAddedProducts={this.state.cart}/>
                 <SearchBox Search={this.onSearch}/>
+
                 <div className='filter-product-wrap'>
                     <FilterBar
-                        AmdCheckBox={this.AmdCheckBox}
-                        GeforceCheckBox={this.GeforceCheckBox}
-                        getPriceMin={this.getPriceMin}
-                        getPriceMax={this.getPriceMax}
-                        getVram={this.getVram}
-                        onCheckboxToggle={this.onClockFilterChange}
+                        onBrandCheckboxToggle={this.onBrandFilterChange}
+                        onPriceMinValueChange={this.onPriceMinFilterChange}
+                        onPriceMaxValueChange={this.onPriceMaxFilterChange}
+                        onVramCheckboxToggle={this.onVramFilterChange}
+                        onClockCheckboxToggle={this.onClockFilterChange}
                     />
-                    <ProductList gpuList={gpus}/>
+                    <ProductList 
+                        gpuList={gpus}
+                        onCartClick={this.onCartChange}/>
                 </div>
             </div>
         );
