@@ -14,7 +14,7 @@ const ProductList = ({gpuList, onCartClick}) => {
             pic={gpuList[i].pic}
             key={i}
             onCartClick={onCartClick}
-            productIndex={gpuList[i].id}
+            id={gpuList[i].id}
             /> 
             })
             }

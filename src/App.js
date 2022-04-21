@@ -68,8 +68,12 @@ class App extends Component {
 
     }
 
-    onCartChange = (productIndex) => {
-        this.setState({cart: this.state.cart.concat(gpu.filter(product => {return product.id === productIndex}))});
+    onCartChange = (gpuID) => {
+        this.setState({cart: this.state.cart.concat(gpu.filter(product => {return product.id === gpuID}))});
+    }
+
+    removeProductFromCart = (CartproductID) => {
+        this.setState({cart: this.state.cart.filter((product,index) => {return CartproductID !== index})})
     }
 
     filter = (gpus) => {
@@ -105,7 +109,8 @@ class App extends Component {
         return (
             <div>
 
-                <NavBar cartAddedProducts={this.state.cart}/>
+                <NavBar cartAddedProducts={this.state.cart}
+                        removeFromCart={this.removeProductFromCart}/>
                 <SearchBox Search={this.onSearch}/>
 
                 <div className='filter-product-wrap'>

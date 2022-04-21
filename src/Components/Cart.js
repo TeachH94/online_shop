@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Cart = ({addedProducts}) => {
+const Cart = ({addedProducts,removeFromCart}) => {
     return (
         <div className='cart-product-list'>
             {
@@ -10,7 +10,7 @@ const Cart = ({addedProducts}) => {
                         <div className='cart-product' key={index}>
                             <div className='cart-product-name'>{products.name}</div>
                             <div className='cart-product-price'>{products.price}zł</div>
-                            <img alt ='' src={require('../Assets/checkbox.png')} />
+                            <img alt ='' src={require('../Assets/checkbox.png')} onClick={event => removeFromCart(index)}/>
                         </div>
                     )
                 })
