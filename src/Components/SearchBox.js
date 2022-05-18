@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/SearchBox.css';
 
 const SearchBox = ({Search: onSearch}) => {
     return(

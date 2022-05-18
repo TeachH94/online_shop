@@ -1,5 +1,6 @@
 import React from 'react';
 import Product from './Product.js'
+import '../Styles/ProductList.css';
 
 const ProductList = ({gpuList, onCartClick}) => {
     return(

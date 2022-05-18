@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import NavBar from './Components/NavBar.js';
-import './App.css';
 import gpu from './gpuList.js';
 import ProductList from './Components/ProductList.js';
 import SearchBox from './Components/SearchBox.js'
@@ -16,10 +15,16 @@ class App extends Component {
             priceMax: +Infinity,
             vram: [],
             clock: [],
-            cart: []
+            cart: [],
+            cartDropdown: false
         }
     }
 
+
+    onCartClick = () => {
+        if (this.state.cart.length !== 0) {
+        this.setState({cartDropdown: this.state.cartDropdown? false : true})}
+    }
 
     onClockFilterChange = (newClock, checked) => {
         if (checked) {
@@ -72,8 +77,11 @@ class App extends Component {
         this.setState({cart: this.state.cart.concat(gpu.filter(product => {return product.id === gpuID}))});
     }
 
-    removeProductFromCart = (CartproductID) => {
-        this.setState({cart: this.state.cart.filter((product,index) => {return CartproductID !== index})})
+    removeProductFromCart = (CartproductID, currentTarget) => {
+        this.setState({cart: this.state.cart.filter((product,index) => {return CartproductID !== index})});
+
+        const CloseEmptyDropdownList = () => { if (this.state.cart.length === 0) {this.setState({cartDropdown: false})}};
+        setTimeout(CloseEmptyDropdownList, 0);
     }
 
     filter = (gpus) => {
@@ -104,26 +112,31 @@ class App extends Component {
 
     render() {
         const gpus = this.filter(gpu);
-        console.log(this.state.cart)
+        console.log(this.state.cartDropdown)
 
         return (
             <div>
 
                 <NavBar cartAddedProducts={this.state.cart}
-                        removeFromCart={this.removeProductFromCart}/>
-                <SearchBox Search={this.onSearch}/>
+                        removeFromCart={this.removeProductFromCart}
+                        onCartClick={this.onCartClick}
+                        cartDropdown={this.state.cartDropdown}/>
 
-                <div className='filter-product-wrap'>
-                    <FilterBar
-                        onBrandCheckboxToggle={this.onBrandFilterChange}
-                        onPriceMinValueChange={this.onPriceMinFilterChange}
-                        onPriceMaxValueChange={this.onPriceMaxFilterChange}
-                        onVramCheckboxToggle={this.onVramFilterChange}
-                        onClockCheckboxToggle={this.onClockFilterChange}
-                    />
-                    <ProductList 
-                        gpuList={gpus}
-                        onCartClick={this.onCartChange}/>
+                        <SearchBox Search={this.onSearch}/>
+
+                <div className='filter-product-center'>
+                    <div className='filter-product-wrap'>
+                        <FilterBar
+                            onBrandCheckboxToggle={this.onBrandFilterChange}
+                            onPriceMinValueChange={this.onPriceMinFilterChange}
+                            onPriceMaxValueChange={this.onPriceMaxFilterChange}
+                            onVramCheckboxToggle={this.onVramFilterChange}
+                            onClockCheckboxToggle={this.onClockFilterChange}
+                        />
+                        <ProductList 
+                            gpuList={gpus}
+                            onCartClick={this.onCartChange}/>
+                    </div>
                 </div>
             </div>
         );

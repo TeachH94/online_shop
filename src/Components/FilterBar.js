@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/FilterBar.css';
 
 const CLOCK_CHECKBOXES = [
     {min: '1501', max: '+Infinity', label: 'Ponad 1500MHz'},

@@ -10,7 +10,7 @@ const Cart = ({addedProducts,removeFromCart}) => {
                         <div className='cart-product' key={index}>
                             <div className='cart-product-name'>{products.name}</div>
                             <div className='cart-product-price'>{products.price}zł</div>
-                            <img alt ='' src={require('../Assets/checkbox.png')} onClick={event => removeFromCart(index)}/>
+                            <img alt ='' src={require('../Assets/checkbox.png')} onClick={event => removeFromCart(index, event.currentTarget)}/>
                         </div>
                     )
                 })

@@ -1,0 +1,38 @@
+.product {
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,0.18);
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 40px;
+    width: 50rem;
+    justify-content: space-between;
+}
+
+
+.specs {
+    margin-left: 40px;
+    vertical-align: top;
+    border-bottom: none;
+    
+}
+
+.price {
+    padding-left: 50px;
+
+}
+
+.productInput {
+    color: white;
+    background-image: linear-gradient(to right, #2c9aff, #2599fd, #1d98fb, #1296f8, #0095f6);
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+}
+
+.producth1 {
+    margin-top: 0px;
+    text-align: right;
+}
