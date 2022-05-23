@@ -4,7 +4,7 @@ import '../Styles/ProductList.css';
 
 const ProductList = ({gpuList, onCartClick}) => {
     return(
-        <div className = 'scroll'>
+        <div>
             {
             gpuList.map((e, i) => {
             return <Product name={gpuList[i].name}

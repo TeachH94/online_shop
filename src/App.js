@@ -16,7 +16,8 @@ class App extends Component {
             vram: [],
             clock: [],
             cart: [],
-            cartDropdown: false
+            cartDropdown: false,
+            isMobile: ''
         }
     }
 
@@ -110,9 +111,18 @@ class App extends Component {
         return gpus.filter(gpu => predicates.every(predicate => predicate(gpu)));
     }
 
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState({isMobile: window.innerWidth <= 1080})
+        })
+    }
+
+
     render() {
-        const gpus = this.filter(gpu);
-        console.log(this.state.cartDropdown)
+        let gpus;
+        this.state.isMobile ? 
+            gpus = gpu :
+            gpus = this.filter(gpu) ;
 
         return (
             <div>
@@ -122,9 +132,10 @@ class App extends Component {
                         onCartClick={this.onCartClick}
                         cartDropdown={this.state.cartDropdown}/>
 
-                        <SearchBox Search={this.onSearch}/>
+                <div className='searchbox-wrap'>
 
-                <div className='filter-product-center'>
+                    <SearchBox Search={this.onSearch}/>
+
                     <div className='filter-product-wrap'>
                         <FilterBar
                             onBrandCheckboxToggle={this.onBrandFilterChange}

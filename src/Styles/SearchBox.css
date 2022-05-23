@@ -23,3 +23,9 @@
     padding-top: 3rem;
     vertical-align: bottom;
 }
+
+.searchbox-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}

@@ -4,7 +4,7 @@
     padding: 15px;
     padding-left: 30px;
     padding-right: 40px;
-    width: 50rem;
+    max-width: 50rem;
     justify-content: space-between;
 }
 
@@ -21,6 +21,10 @@
 
 }
 
+.priceh1 {
+    text-align: right;
+}
+
 .productInput {
     color: white;
     background-image: linear-gradient(to right, #2c9aff, #2599fd, #1d98fb, #1296f8, #0095f6);
@@ -34,5 +38,88 @@
 
 .producth1 {
     margin-top: 0px;
-    text-align: right;
 }
+
+@media screen and (max-width: 1080px) {
+    .filter-bar {
+        display: none;
+    }
+
+    .product {
+    max-width: 50rem;
+    justify-content: space-beetwen;
+    }
+
+    .producth1 {
+    font-size: 3vw;
+    }
+
+    .product-pic {
+        min-width: 180px;
+        max-height: 164px;
+    }
+
+    .price {
+        padding-left: 2%;
+    }
+
+    .productInput {
+        font-size: 1.6vw;
+        width: 18vw;
+        height: 4.5vw;
+    }
+
+
+    
+}
+
+@media screen and (max-width: 600px) {
+    .filter-bar {
+        display: none;
+    }
+
+    .product-pic {
+        width: 180px;
+        height: 164px;
+    }
+
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        width: auto;
+    }
+
+    .producth1 {
+        text-align: left;
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .specs {
+        margin-left: 0px;
+        vertical-align:auto;
+    }
+
+    .price {
+        padding-left: 0px;
+        grid-column: 2;
+    }
+
+    .specs, .price {
+        margin-left: 20px;
+    }
+
+    .productInput {
+        width: 120px;
+        height: 40px;
+        border-radius: 15px;
+    }
+
+    .productInput {
+        font-size: 12px;
+        width: 120px;
+        height: 31px;
+    }
+
+
+    }
